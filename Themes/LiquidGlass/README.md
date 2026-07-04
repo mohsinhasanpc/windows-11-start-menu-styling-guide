@@ -77,7 +77,7 @@ controlStyles:
       - CornerRadius=62,62,58,58
   - target: StartMenu.StartHome > Grid#PageRoot
     styles:
-      - Margin=10,10,10,10
+      - Margin=10
       - Padding=0,0,0,0
   - target: Grid#MainMenu
     styles:
@@ -162,7 +162,7 @@ controlStyles:
       - Background:=<WindhawkBlur BlurAmount="0" TintColor="#15151515"/>
       - CornerRadius=15
       - BorderBrush:=<LinearGradientBrush StartPoint="0.45,0" EndPoint="0.55,1"><GradientStop Color="#58B5B5B5" Offset="0.0" /><GradientStop Color="#1B050505" Offset="0.28" /><GradientStop Color="#40040404" Offset="0.5" /><GradientStop Color="#1B050505" Offset="0.72" /><GradientStop Color="#58B1B1B1" Offset="1" /></LinearGradientBrush>
-      - Margin=-50,0,0,0
+      - Margin=0
   - target: Button#AddButton
     styles:
       - Background:=$Glass
@@ -171,14 +171,14 @@ controlStyles:
       - CornerRadius=15
   - target: StartMenu.CategoryControl
     styles:
-      - Width=Auto
-      - Margin=2,0,2,0
-  - target: 'StartMenu.CategoryControl > Grid#RootGrid > Border '
+      - ''
+  - target: StartMenu.CategoryControl > Grid#RootGrid > Border
     styles:
-      - BorderThickness=$ElementBorderThickness
-      - CornerRadius=$ElementCornerRadius
-      - BorderBrush:=$ElementBorderBrush
-      - Background:=$ElementBG
+      - BorderThickness=1
+      - CornerRadius=40
+      - BorderBrush:=<LinearGradientBrush StartPoint="0.01,0" EndPoint="0,1"><GradientStop Color="#58AFAFAF" Offset="0" /><GradientStop Color="#50303030" Offset="0.28" /><GradientStop Color="#90040404" Offset="0.5" /><GradientStop Color="#50303030" Offset="0.72" /><GradientStop Color="#58B1B1B1" Offset="1" /></LinearGradientBrush>
+      - Background:=<WindhawkBlur BlurAmount="0" TintColor="#50202020"/>
+      - Margin=0,0,0,0
   - target: StartMenu.PinnedList#StartMenuPinnedList
     styles:
       - Visibility=0
@@ -420,6 +420,7 @@ controlStyles:
       - Background:=<WindhawkBlur BlurAmount="18" TintColor="#10151515"/>
       - BorderBrush:=<LinearGradientBrush StartPoint="0.465,0" EndPoint="0.535,1"><GradientStop Color="#5FBFBFBF" Offset="0.0" /><GradientStop Color="#3F050505" Offset="0.28" /><GradientStop Color="#6F040404" Offset="0.5" /><GradientStop Color="#3F050505" Offset="0.72" /><GradientStop Color="#5FBFBFBF" Offset="1" /></LinearGradientBrush>
       - BorderThickness=1
+      - Visibility=>RecVis
       - HorizontalAlignment=Left
       - ActualHeight=>RecmHyt
       - Padding={{ -1 * max(44, min(88, RecmHyt * 1)) }},{{ max(0, min(1000, RecmHyt * 0.08)) }},{{ max(0, min(1000, RecmHyt * 0.09)) }},{{ max(0, min(1000, RecmHyt * 0.09)) }}
@@ -443,7 +444,8 @@ controlStyles:
       - BorderThickness=1.2,1,1.2,1
       - ActualHeight=>AllAppHyt
       - Padding={{ max(44, min(88, AllAppHyt * 1)) }},{{ max(5, min(1000, AllAppHyt * 0.1)) }},{{ max(44, min(88, AllAppHyt * 1)) }},{{ max(6, min(1000, AllAppHyt * 0.11)) }}
-      - Margin={{ max(52, min(102, AllAppHyt * 1.12)) }},0,{{ max(52, min(102, AllAppHyt * 1.12)) }},0
+      - Margin={{ max(52, min(102, AllAppHyt * 1.12)) }},{{RecVis * 15}},{{ max(52, min(102, AllAppHyt * 1.12)) }},0
+      - ActualWidth=>HeadingWidth
   - target: TextBlock#AllListHeadingText
     styles:
       - Text=All Apps & Main Programs
