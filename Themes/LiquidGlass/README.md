@@ -10,6 +10,7 @@
 
 > [!NOTE]
 > This theme is made for Dark mode only.
+> This theme might require atleast 8th/10th gen cpu (if using intel).
 
 ## Theme selection
 
@@ -156,13 +157,18 @@ controlStyles:
       - Width={{MenuWidth * 0.89}}
       - MinWidth:=200
       - Canvas.ZIndex=10
-  - target: Microsoft.UI.Xaml.Controls.DropDownButton#ViewSelectionButton
+  - target: Microsoft.UI.Xaml.Controls.DropDownButton > Grid@CommonStates
     styles:
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
-      - Background:=<WindhawkBlur BlurAmount="0" TintColor="#15151515"/>
       - CornerRadius=15
+      - Margin=0,0,-50,0
+      - Background:=<WindhawkBlur BlurAmount="0" TintColor="#15151515"/>
+      - Background@PointerOver:=<WindhawkBlur BlurAmount="0" TintColor="#25252525"/>
+      - Background@Pressed:=<WindhawkBlur BlurAmount="0" TintColor="#0F0F0F0F"/>
       - BorderBrush:=<LinearGradientBrush StartPoint="0.45,0" EndPoint="0.55,1"><GradientStop Color="#58B5B5B5" Offset="0.0" /><GradientStop Color="#1B050505" Offset="0.28" /><GradientStop Color="#40040404" Offset="0.5" /><GradientStop Color="#1B050505" Offset="0.72" /><GradientStop Color="#58B1B1B1" Offset="1" /></LinearGradientBrush>
-      - Margin=0
+      - RenderTransformOrigin=0.5,0.8
+      - RenderTransform:=<ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+      - RenderTransform@PointerOver:=<ScaleTransform ScaleX="1.05" ScaleY="1.025" />
+      - RenderTransform@Pressed:=<ScaleTransform ScaleX="0.95" ScaleY="0.95" />
   - target: Button#AddButton
     styles:
       - Background:=$Glass
@@ -179,6 +185,21 @@ controlStyles:
       - BorderBrush:=<LinearGradientBrush StartPoint="0.01,0" EndPoint="0,1"><GradientStop Color="#58AFAFAF" Offset="0" /><GradientStop Color="#50303030" Offset="0.28" /><GradientStop Color="#90040404" Offset="0.5" /><GradientStop Color="#50303030" Offset="0.72" /><GradientStop Color="#58B1B1B1" Offset="1" /></LinearGradientBrush>
       - Background:=<WindhawkBlur BlurAmount="0" TintColor="#50202020"/>
       - Margin=0,0,0,0
+  - target: Button#FolderPlate > Grid@CommonStates
+    styles:
+      - RenderTransformOrigin=0.5,0.5
+      - RenderTransform:=<ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+      - RenderTransform@PointerOver:=<ScaleTransform ScaleX="1.05" ScaleY="1.05" />
+      - RenderTransform@Pressed:=<ScaleTransform ScaleX="0.95" ScaleY="0.95" />
+  - target: Button#FolderPlate > Grid@CommonStates > Border
+    styles:
+      - Background@Normal:=<WindhawkBlur BlurAmount="15" TintColor="#10909090"/>
+      - Background@PointerOver:=<WindhawkBlur BlurAmount="15" TintColor="#19FFFFFF"/>
+      - Background@Pressed:=<WindhawkBlur BlurAmount="15" TintColor="#00909090"/>
+      - BorderBrush:=<LinearGradientBrush StartPoint="0.3,0" EndPoint="0.7,1"><GradientStop Color="#58BFBFBF" Offset="0.0" /><GradientStop Color="#1F050505" Offset="0.28" /><GradientStop Color="#50040404" Offset="0.5" /><GradientStop Color="#1F050505" Offset="0.72" /><GradientStop Color="#58B5B5B5" Offset="1" /></LinearGradientBrush>
+      - BorderThickness=1
+      - CornerRadius=18
+      - Margin=4.5
   - target: StartMenu.PinnedList#StartMenuPinnedList
     styles:
       - Visibility=0
@@ -408,12 +429,16 @@ controlStyles:
       - FontSize=14
       - CornerRadius={{ max(19, min(65, (TooltipHeight / 2.1) * 1)) }}
       - ActualHeight=>TooltipHeight
-  - target: Button#ShowMoreSuggestionsButton > Grid@CommonStates > Border#BackgroundBorder
+  - target: Button#ShowMoreSuggestionsButton > Grid@CommonStates
     styles:
-      - CornerRadius=15
+      - CornerRadius=16
       - Background:=<WindhawkBlur BlurAmount="18" TintColor="#10151515"/>
       - BorderThickness=1
       - BorderBrush:=<LinearGradientBrush StartPoint="0.45,0" EndPoint="0.55,1"><GradientStop Color="#5FBFBFBF" Offset="0.0" /><GradientStop Color="#2F050505" Offset="0.28" /><GradientStop Color="#5F040404" Offset="0.5" /><GradientStop Color="#2F050505" Offset="0.72" /><GradientStop Color="#5FB5B5B5" Offset="1" /></LinearGradientBrush>
+      - RenderTransformOrigin=0.5,0.59
+      - RenderTransform:=<ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+      - RenderTransform@PointerOver:=<ScaleTransform ScaleX="1.05" ScaleY="1.03" />
+      - RenderTransform@Pressed:=<ScaleTransform ScaleX="0.95" ScaleY="0.95" />
   - target: Grid#TopLevelSuggestionsListHeader
     styles:
       - CornerRadius=21.5
@@ -446,16 +471,22 @@ controlStyles:
       - Padding={{ max(44, min(88, AllAppHyt * 1)) }},{{ max(5, min(1000, AllAppHyt * 0.1)) }},{{ max(44, min(88, AllAppHyt * 1)) }},{{ max(6, min(1000, AllAppHyt * 0.11)) }}
       - Margin={{ max(52, min(102, AllAppHyt * 1.12)) }},{{RecVis * 15}},{{ max(52, min(102, AllAppHyt * 1.12)) }},0
       - ActualWidth=>HeadingWidth
-  - target: TextBlock#AllListHeadingText
+  - target: Button#HideMoreSuggestionsButton > Grid@CommonStates
     styles:
-      - Text=All Apps & Main Programs
-      - VerticalAlignment=Center
-      - Margin=0
+      - RenderTransformOrigin=0.5,0.5
+      - RenderTransform:=<ScaleTransform ScaleX="1.0" ScaleY="1.0" />
+      - RenderTransform@PointerOver:=<ScaleTransform ScaleX="1.03" ScaleY="1.05" />
+      - RenderTransform@Pressed:=<ScaleTransform ScaleX="0.95" ScaleY="0.95" />
   - target: Button#HideMoreSuggestionsButton > Grid@CommonStates > Border#BackgroundBorder
     styles:
       - CornerRadius=15
       - Background:=<WindhawkBlur BlurAmount="18" TintColor="#10151515"/>
       - BorderBrush:=<LinearGradientBrush StartPoint="0.45,0" EndPoint="0.55,1"><GradientStop Color="#58BFBFBF" Offset="0.0" /><GradientStop Color="#1F050505" Offset="0.28" /><GradientStop Color="#50040404" Offset="0.5" /><GradientStop Color="#1F050505" Offset="0.72" /><GradientStop Color="#58B5B5B5" Offset="1" /></LinearGradientBrush>
+  - target: TextBlock#AllListHeadingText
+    styles:
+      - Text=All Apps & Main Programs
+      - VerticalAlignment=Center
+      - Margin=0
   - target: Grid#MoreSuggestionsRoot > Grid[1]
     styles:
       - CornerRadius=21.5
@@ -470,7 +501,7 @@ controlStyles:
       - Text=Recommended - Recent Apps & Files
   - target: ScrollViewer#MenuFlyoutPresenterScrollViewer > Border > Grid > ScrollContentPresenter > ItemsPresenter > StackPanel
     styles:
-      - ChildrenTransitions:=<TransitionCollection><EntranceThemeTransition IsStaggeringEnabled="False" FromHorizontalOffset="-25" FromVerticalOffset="0" /></TransitionCollection>
+      - ChildrenTransitions:=<TransitionCollection><EntranceThemeTransition IsStaggeringEnabled="False" FromHorizontalOffset="-40" FromVerticalOffset="0" /></TransitionCollection>
   - target: Grid#LayoutRoot
     styles:
       - BackgroundTransition:=<BrushTransition Duration="0:0:0.083" />
@@ -572,12 +603,18 @@ controlStyles:
       - Height=Auto
   - target: StartMenu.PinnedListTile > Grid#Root > Grid#LogoContainer
     styles:
-      - Width=60
-      - Height=39
+      - RenderTransformOrigin=0.5,0.5
+      - RenderTransform:=<ScaleTransform ScaleX="1.02" ScaleY="1.02" />
+      - ActualHeight=>PinAppHyt
+      - ActualWidth=>PinAppWid
+      - MinHeight=39
+      - MinWidth=39
+      - MaxHeight=60
+      - MaxWidth=60
   - target: StartMenu.PinnedListTile > Grid#Root > Grid#LogoContainer > Image#Logo
     styles:
-      - Width=38
-      - Height=38
+      - Width=Auto
+      - Height=Auto
   - target: Windows.UI.Xaml.Controls.Primitives.ScrollBar
     styles:
       - Visibility=1
@@ -587,8 +624,8 @@ controlStyles:
       - BorderBrush:=<LinearGradientBrush StartPoint="0.3,0" EndPoint="0.7,1"><GradientStop Color="#58BFBFBF" Offset="0.0" /><GradientStop Color="#1F050505" Offset="0.28" /><GradientStop Color="#50040404" Offset="0.5" /><GradientStop Color="#1F050505" Offset="0.72" /><GradientStop Color="#58B5B5B5" Offset="1" /></LinearGradientBrush>
       - BorderThickness=1
       - CornerRadius=15
-      - Width=55
-      - Height=52
+      - Height={{ max(52, min(100, PinAppHyt * 1.22)) }}
+      - Width={{ max(55, min(105, PinAppWid * 1.22)) }}
   - target: Border#FolderPlate > > TextBlock
     styles:
       - FontSize=23
