@@ -60,10 +60,7 @@ styleConstants:
 controlStyles:
   - target: Border#AcrylicOverlay
     styles:
-      - Margin=0
-      - BorderThickness=0
-      - CornerRadius=10
-      - Visibility=Collapsed
+      - Visibility=1
   - target: Border#AcrylicBorder
     styles:
       - Background:=$GlassDark
@@ -79,14 +76,6 @@ controlStyles:
   - target: StartMenu.StartHome > Grid#PageRoot
     styles:
       - Margin=10
-      - Padding=0,0,0,0
-  - target: Grid#MainMenu
-    styles:
-      - Padding=0,0,0,0
-  - target: Grid#OuterBorderGrid
-    styles:
-      - CornerRadius=0
-      - Padding=0
   - target: Border#AppBorder
     styles:
       - Background:=$GlassDarkSearchPage
@@ -115,9 +104,6 @@ controlStyles:
   - target: Border#BorderUnderline
     styles:
       - Visibility=Visible
-  - target: Windows.UI.Xaml.Controls.Primitives.ScrollBar#VerticalScrollBar
-    styles:
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
   - target: Grid#DroppedFlickerWorkaroundWrapper > Border#BackgroundBorder
     styles:
       - Background@PointerOver:=$Glass
@@ -144,7 +130,6 @@ controlStyles:
       - Visibility=1
   - target: Grid#NavPanePlaceholder
     styles:
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
       - Background:=$GlassDarkBottomTray
       - BorderBrush:=<LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#70D3D3D3" Offset="0.0" /><GradientStop Color="#50404040" Offset="0.1" /><GradientStop Color="#69404040" Offset="0.25" /><GradientStop Color="#60292929" Offset="0.5" /><GradientStop Color="#69404040" Offset="0.75" /><GradientStop Color="#50404040" Offset="0.9" /><GradientStop Color="#70C1C1C1" Offset="1" /></LinearGradientBrush>
       - CornerRadius=25
@@ -175,16 +160,13 @@ controlStyles:
       - BorderBrush:=$BorderBrush
       - BorderThickness=$BorderThickness
       - CornerRadius=15
-  - target: StartMenu.CategoryControl
-    styles:
-      - ''
   - target: StartMenu.CategoryControl > Grid#RootGrid > Border
     styles:
       - BorderThickness=1
       - CornerRadius=40
       - BorderBrush:=<LinearGradientBrush StartPoint="0.01,0" EndPoint="0,1"><GradientStop Color="#58AFAFAF" Offset="0" /><GradientStop Color="#50303030" Offset="0.28" /><GradientStop Color="#90040404" Offset="0.5" /><GradientStop Color="#50303030" Offset="0.72" /><GradientStop Color="#58B1B1B1" Offset="1" /></LinearGradientBrush>
       - Background:=<WindhawkBlur BlurAmount="0" TintColor="#50202020"/>
-      - Margin=0,0,0,0
+      - Margin=0
   - target: Button#FolderPlate > Grid@CommonStates
     styles:
       - RenderTransformOrigin=0.5,0.5
@@ -202,9 +184,7 @@ controlStyles:
       - Margin=4.5
   - target: StartMenu.PinnedList#StartMenuPinnedList
     styles:
-      - Visibility=0
       - Margin=0,-20,0,0
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
       - Height=Auto
   - target: StartMenu.PinnedList#StartMenuPinnedList > Grid#Root > GridView#PinnedList > Border
     styles:
@@ -212,7 +192,7 @@ controlStyles:
       - BorderBrush:=<LinearGradientBrush StartPoint="0.28,0" EndPoint="0.72,1"><GradientStop Color="#40B5B5B5" Offset="0.0" /><GradientStop Color="#15050505" Offset="0.28" /><GradientStop Color="#40040404" Offset="0.5" /><GradientStop Color="#15050505" Offset="0.72" /><GradientStop Color="#40B1B1B1" Offset="1" /></LinearGradientBrush>
       - CornerRadius=50
       - BorderThickness=1,0.4,1,0.4
-      - Padding:=0,0,0,0
+      - Padding:=0
   - target: Windows.UI.Xaml.Controls.Grid#PageRoot
     styles:
       - ActualHeight=>MenuHeight
@@ -254,7 +234,6 @@ controlStyles:
   - target: Windows.UI.Xaml.Controls.Primitives.ToggleButton#ShowHideCompanion
     styles:
       - Visibility=1
-      - Background:=Transparent
   - target: Windows.UI.Xaml.Controls.ContentDialog
     styles:
       - Background:=<WindhawkBlur BlurAmount="8" TintColor="#10151515"/>
@@ -338,35 +317,6 @@ controlStyles:
       - BorderBrush:=$BorderBrush
       - BorderThickness=$BorderThickness
       - CornerRadius=$CornerRadius
-  - target: Grid#WidgetCanvasPanel
-    styles:
-      - HorizontalAlignment=Center
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
-  - target: Grid#MediaTransportControls
-    styles:
-      - Background:=$GlassDark
-      - BorderBrush:=$BorderBrush
-      - BorderThickness=$BorderThickness
-      - CornerRadius=$CornerRadius
-  - target: Grid#MediaControlsContainer
-    styles:
-      - Visibility=Visible
-      - Margin=0,0,0,0
-      - CornerRadius=$CornerRadius
-  - target: StackPanel#TimeAndDatePanel
-    styles:
-      - VerticalAlignment=Top
-      - HorizontalAlignment=Center
-      - RenderTransform:=<TranslateTransform X="0" />
-  - target: StackPanel#TimePanel > TextBlock#Time
-    styles:
-      - HorizontalAlignment=Center
-      - RenderTransform:=<TranslateTransform X="0" Y="0" />
-      - Foreground:=$ClockBG
-  - target: StackPanel#TimeAndDatePanel > TextBlock#Date
-    styles:
-      - HorizontalAlignment=Center
-      - Foreground:=$ClockBG
   - target: StartMenu.SearchBoxToggleButton#SearchBoxToggleButton
     styles:
       - Visibility=Visible
@@ -537,14 +487,14 @@ controlStyles:
     styles:
       - CornerRadius=57
       - Margin=0.3,0,0.3,0
-      - Visibility=Visible
-      - BorderThickness=7.5,9.5,7.5,8
+      - Visibility=0
+      - BorderThickness=8,9.5,8,8
       - Background:=Transparent
       - Canvas.ZIndex=-1
-      - BorderBrush:=<WindhawkBlur BlurAmount="60" TintColor="#100F0F0F"/>
+      - BorderBrush:=<WindhawkBlur BlurAmount="50" TintColor="#100F0F0F"/>
   - target: Border#TaskbarSearchBackground
     styles:
-      - Visibility=Collapsed
+      - Visibility=1
       - Background:=Transparent
       - BorderThickness=0
       - CornerRadius=50
@@ -559,7 +509,7 @@ controlStyles:
     styles:
       - Background:=<WindhawkBlur BlurAmount="18" TintColor="#193A3A3A"/>
       - BorderBrush:=<LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#70D3D3D3" Offset="0.0" /><GradientStop Color="#50696969" Offset="0.5" /><GradientStop Color="#653C3C3C" Offset="1" /></LinearGradientBrush>
-      - BorderThickness=0,0,0,0
+      - BorderThickness=0
       - CornerRadius=20
       - Height={{SearchPageHeight * 0.055}}
   - target: Cortana.UI.Views.RichSearchBoxControl#SearchBoxControl
@@ -569,10 +519,10 @@ controlStyles:
       - Margin=0,{{SearchPageHeight * 0.03}},0,0
   - target: Grid#InnerContent > Windows.UI.Xaml.Shapes.Rectangle
     styles:
-      - Visibility=Collapsed
+      - Visibility=1
   - target: Grid#TopLevelHeader
     styles:
-      - Canvas.ZIndex=100
+      - Canvas.ZIndex=10
   - target: Frame#StartFrame
     styles:
       - Grid.Row=0
@@ -586,7 +536,7 @@ controlStyles:
       - Margin=0,70,0,70
   - target: GridView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
-      - Margin=0,0,0,0
+      - Margin=0
   - target: Button#HideMoreSuggestionsButton
     styles:
       - Margin=0,68,48,0
@@ -594,9 +544,6 @@ controlStyles:
     styles:
       - Width=Auto
       - Height=Auto
-  - target: Grid#DroppedFlickerWorkaroundWrapper > ContentPresenter#ContentPresenter > Grid
-    styles:
-      - ''
   - target: StartMenu.PinnedListTile
     styles:
       - Width=Auto
@@ -638,8 +585,6 @@ webContentStyles:
   - target: .groupContainer:first-of-type .groupTitle
     styles:
       - 'background-color: rgba(20, 20, 20, 0.4) !important'
-      - 'backdrop-filter: blur(15px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1.5px solid rgba(180, 180, 180, 0.5) !important'
       - 'border-radius: 50px !important'
       - 'height: auto !important'
@@ -651,8 +596,6 @@ webContentStyles:
   - target: .groupContainer:nth-of-type(2) .groupTitle
     styles:
       - 'background-color: rgba(20, 20, 20, 0.4) !important'
-      - 'backdrop-filter: blur(14px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1.5px solid rgba(180, 180, 180, 0.5) !important'
       - 'border-radius: 50px !important'
       - 'height: auto !important'
@@ -664,8 +607,6 @@ webContentStyles:
   - target: div[data-region="TopApps"] .groupTitle, .groupContainer:nth-of-type(3) .groupTitle
     styles:
       - 'background-color: rgba(20, 20, 20, 0.4) !important'
-      - 'backdrop-filter: blur(14px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1.5px solid rgba(180, 180, 180, 0.5) !important'
       - 'border-radius: 50px !important'
       - 'height: auto !important'
@@ -677,23 +618,17 @@ webContentStyles:
   - target: .groupContainer:nth-of-type(2) .suggestion
     styles:
       - 'background-color: rgba(50, 50, 50, 0.3) !important'
-      - 'backdrop-filter: blur(14px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1.2px solid rgba(181, 181, 181, 0.25) !important'
       - 'border-radius: 20px !important'
       - 'padding: 3px 5px 0px 5px !important'
   - target: div[data-region="TopApps"] .suggestion, .groupContainer:nth-of-type(3) .suggestion
     styles:
       - 'background-color: rgba(45, 45, 45, 0.25) !important'
-      - 'backdrop-filter: blur(14px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1px solid rgba(181, 181, 181, 0.25) !important'
       - 'border-radius: 30px !important'
   - target: .groupContainer:nth-of-type(2) .suggsList, div[data-region="QuickActionList"] .suggsList, div[data-region="TrendingWebSearches"] .suggsList
     styles:
       - 'background-color: rgba(45, 45, 45, 0.22) !important'
-      - 'backdrop-filter: blur(14px) !important'
-      - '-webkit-backdrop-filter: blur(14px) !important'
       - 'border: 1px solid rgba(190, 190, 190, 0.5) !important'
       - 'border-radius: 30px !important'
       - 'padding: 16px 15px 5px 20px !important'
