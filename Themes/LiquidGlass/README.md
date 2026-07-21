@@ -75,7 +75,9 @@ controlStyles:
       - CornerRadius=62,62,58,58
   - target: StartMenu.StartHome > Grid#PageRoot
     styles:
-      - Margin=10
+      - Margin=10,0,10,0
+      - CornerRadius=50
+      - Background:=Transparent
   - target: Border#AppBorder
     styles:
       - Background:=$GlassDarkSearchPage
@@ -132,7 +134,7 @@ controlStyles:
     styles:
       - Background:=$GlassDarkBottomTray
       - BorderBrush:=<LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#70D3D3D3" Offset="0.0" /><GradientStop Color="#50404040" Offset="0.1" /><GradientStop Color="#69404040" Offset="0.25" /><GradientStop Color="#60292929" Offset="0.5" /><GradientStop Color="#69404040" Offset="0.75" /><GradientStop Color="#50404040" Offset="0.9" /><GradientStop Color="#70C1C1C1" Offset="1" /></LinearGradientBrush>
-      - CornerRadius=25
+      - CornerRadius=26
       - BorderThickness=1.2,1,1.2,1
       - Height={{MenuHeight * 0.069}}
       - MinHeight=52
@@ -184,7 +186,7 @@ controlStyles:
       - Margin=4.5
   - target: StartMenu.PinnedList#StartMenuPinnedList
     styles:
-      - Margin=0,-20,0,0
+      - Margin=0,-10,0,0
       - Height=Auto
   - target: StartMenu.PinnedList#StartMenuPinnedList > Grid#Root > GridView#PinnedList > Border
     styles:
@@ -342,9 +344,6 @@ controlStyles:
   - target: Cortana.UI.Views.TaskbarSearchPage
     styles:
       - Background:=Transparent
-      - BorderBrush:=Transparent
-      - BorderThickness=0
-      - CornerRadius=0
       - Width=Auto
       - ActualWidth=>SearchPageWidth
       - ActualHeight=>SearchPageHeight
@@ -421,6 +420,9 @@ controlStyles:
       - Padding={{ max(44, min(88, AllAppHyt * 1)) }},{{ max(5, min(1000, AllAppHyt * 0.1)) }},{{ max(44, min(88, AllAppHyt * 1)) }},{{ max(6, min(1000, AllAppHyt * 0.11)) }}
       - Margin={{ max(52, min(102, AllAppHyt * 1.12)) }},{{RecVis * 15}},{{ max(52, min(102, AllAppHyt * 1.12)) }},0
       - ActualWidth=>HeadingWidth
+  - target: Button#HideMoreSuggestionsButton
+    styles:
+      - Margin=0,79,48,0
   - target: Button#HideMoreSuggestionsButton > Grid@CommonStates
     styles:
       - RenderTransformOrigin=0.5,0.5
@@ -437,6 +439,13 @@ controlStyles:
       - Text=All Apps & Main Programs
       - VerticalAlignment=Center
       - Margin=0
+  - target: Grid#MoreSuggestionsRoot > Grid
+    styles:
+      - Background=Transparent
+      - Margin=0,-100,0,0
+  - target: ListView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
+    styles:
+      - Margin=0,100,0,0
   - target: Grid#MoreSuggestionsRoot > Grid[1]
     styles:
       - CornerRadius=21.5
@@ -445,7 +454,8 @@ controlStyles:
       - BorderThickness=1.2,1,1.2,1
       - HorizontalAlignment=Left
       - Padding=-44,3,4,4
-      - Margin=52,67,0,0
+      - Margin=52,75,0,0
+      - Canvas.ZIndex=10
   - target: TextBlock#MoreSuggestionsListHeaderText
     styles:
       - Text=Recommended - Recent Apps & Files
@@ -537,9 +547,6 @@ controlStyles:
   - target: GridView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
       - Margin=0
-  - target: Button#HideMoreSuggestionsButton
-    styles:
-      - Margin=0,68,48,0
   - target: GridView#PinnedList > Border > ScrollViewer > Border > Grid > ScrollContentPresenter > ItemsPresenter > ItemsWrapGrid > GridViewItem
     styles:
       - Width=Auto
@@ -571,6 +578,8 @@ controlStyles:
       - BorderBrush:=<LinearGradientBrush StartPoint="0.3,0" EndPoint="0.7,1"><GradientStop Color="#58BFBFBF" Offset="0.0" /><GradientStop Color="#1F050505" Offset="0.28" /><GradientStop Color="#50040404" Offset="0.5" /><GradientStop Color="#1F050505" Offset="0.72" /><GradientStop Color="#58B5B5B5" Offset="1" /></LinearGradientBrush>
       - BorderThickness=1
       - CornerRadius=15
+      - MinHeight=52
+      - MinWidth=55
       - Height={{ max(52, min(100, PinAppHyt * 1.22)) }}
       - Width={{ max(55, min(105, PinAppWid * 1.22)) }}
   - target: Border#FolderPlate > > TextBlock
