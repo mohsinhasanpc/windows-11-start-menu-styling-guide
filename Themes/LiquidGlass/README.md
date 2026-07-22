@@ -147,7 +147,7 @@ controlStyles:
   - target: Microsoft.UI.Xaml.Controls.DropDownButton > Grid@CommonStates
     styles:
       - CornerRadius=15
-      - Margin=0,0,-50,0
+      - Margin=0,0,{{ -1 * max(50, min(100, MenuHeight * 0.068)) }},0
       - Background:=<WindhawkBlur BlurAmount="0" TintColor="#15151515"/>
       - Background@PointerOver:=<WindhawkBlur BlurAmount="0" TintColor="#25252525"/>
       - Background@Pressed:=<WindhawkBlur BlurAmount="0" TintColor="#0F0F0F0F"/>
@@ -206,7 +206,7 @@ controlStyles:
       - MinHeight=130
       - Width=Auto
       - HorizontalAlignment=Center
-      - Margin=0,{{MenuHeight * -0.08}},0,15
+      - Margin=0,{{ -1 * max(60, min(120, MenuHeight * 0.08)) }},0,{{ max(15, min(25, MenuHeight * 0.02)) }}
   - target: TextBlock#PinnedListHeaderText
     styles:
       - Visibility=1
@@ -216,7 +216,8 @@ controlStyles:
   - target: GridViewHeaderItem > Border > ContentPresenter#ContentPresenter > Button#Header > Border#Border
     styles:
       - CornerRadius=18
-      - Width=40
+      - MinWidth=40
+      - Width=Auto
       - HorizontalAlignment=Left
       - Background:=<WindhawkBlur BlurAmount="20" TintColor="#39151515"/>
       - BorderBrush:=<LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#70D3D3D3" Offset="0.0" /><GradientStop Color="#40404040" Offset="0.15" /><GradientStop Color="#40404040" Offset="0.28" /><GradientStop Color="#50252525" Offset="0.5" /><GradientStop Color="#40404040" Offset="0.72" /><GradientStop Color="#40404040" Offset="0.85" /><GradientStop Color="#70C1C1C1" Offset="1" /></LinearGradientBrush>
@@ -408,8 +409,8 @@ controlStyles:
       - Orientation=Horizontal
   - target: GridView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter > ItemsWrapGrid > GridViewItem
     styles:
-      - MinWidth={{RecContainerWidth / 2.1 - 15}}
-      - MaxWidth=Auto
+      - MinWidth={{RecContainerWidth / 2.1 - 20}}
+      - Width=Auto
   - target: Grid#AllListHeading
     styles:
       - CornerRadius=23
@@ -422,7 +423,7 @@ controlStyles:
       - ActualWidth=>HeadingWidth
   - target: Button#HideMoreSuggestionsButton
     styles:
-      - Margin=0,79,48,0
+      - Margin=0,{{ max(65, min(100, MenuHeight * 0.106)) }},{{ max(48, min(70, MenuWidth * 0.075)) }},0
   - target: Button#HideMoreSuggestionsButton > Grid@CommonStates
     styles:
       - RenderTransformOrigin=0.5,0.5
@@ -442,10 +443,10 @@ controlStyles:
   - target: Grid#MoreSuggestionsRoot > Grid
     styles:
       - Background=Transparent
-      - Margin=0,-100,0,0
+      - Margin=0,{{ -1 * max(80, min(120, MenuHeight * 0.135)) }},0,0
   - target: ListView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
-      - Margin=0,100,0,0
+      - Margin=0,{{ max(80, min(120, MenuHeight * 0.135)) }},0,0
   - target: Grid#MoreSuggestionsRoot > Grid[1]
     styles:
       - CornerRadius=21.5
@@ -453,8 +454,8 @@ controlStyles:
       - BorderBrush:=<LinearGradientBrush StartPoint="0.49,0" EndPoint="0.511,1"><GradientStop Color="#5FBFBFBF" Offset="0.0" /><GradientStop Color="#21050505" Offset="0.28" /><GradientStop Color="#59040404" Offset="0.5" /><GradientStop Color="#21050505" Offset="0.72" /><GradientStop Color="#5FBFBFBF" Offset="1" /></LinearGradientBrush>
       - BorderThickness=1.2,1,1.2,1
       - HorizontalAlignment=Left
-      - Padding=-44,3,4,4
-      - Margin=52,75,0,0
+      - Padding={{ -1 * max(44, min(88, MenuHeight * 0.06)) }},{{ max(3, min(6, MenuWidth * 0.004)) }},{{ max(4, min(8, MenuWidth * 0.0055)) }},{{ max(4, min(8, MenuWidth * 0.0055)) }}
+      - Margin={{ max(52, min(90, MenuWidth * 0.08)) }},{{ max(75, min(120, MenuHeight * 0.101)) }},0,0
       - Canvas.ZIndex=10
   - target: TextBlock#MoreSuggestionsListHeaderText
     styles:
@@ -540,10 +541,10 @@ controlStyles:
       - Canvas.ZIndex=-1
   - target: GridView#PinnedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
-      - Margin=0,70,0,0
+      - Margin=0,{{ max(70, min(100, MenuHeight * 0.095)) }},0,0
   - target: ContentPresenter#ZoomedInPresenter > GridView#AllAppsGrid > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
-      - Margin=0,70,0,70
+      - Margin=0,{{ max(70, min(100, MenuHeight * 0.095)) }},0,{{ max(70, min(100, MenuHeight * 0.095)) }}
   - target: GridView#RecommendedList > Border > ScrollViewer#ScrollViewer > Border#Root > Grid > ScrollContentPresenter#ScrollContentPresenter > ItemsPresenter
     styles:
       - Margin=0
